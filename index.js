@@ -17,6 +17,10 @@ app.use(express.urlencoded({extended:true}))
 
 app.use('/user', userRouter);
 
+app.get('/', (req, res) => {
+    res.send('this work')
+})
+
 app.listen(PORT || 3001, () => {
     console.log("Connected to Server")
 })
