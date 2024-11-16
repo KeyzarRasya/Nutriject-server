@@ -5,6 +5,11 @@
     ],
     "routes": [
       { "src": "/(.*)", "dest": "/" }
-    ]
+    ],
+    "functions":{
+        "src/routes/*.js":{
+            "maxDuration":20
+        }
+    }
   }
   
