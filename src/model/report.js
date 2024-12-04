@@ -23,6 +23,10 @@ const reportSchema = new mongoose.Schema({
         type:Number,
         default:0
     },
+    carbs:{
+        type:Number,
+        default:0
+    },
     kalori:{
         type:Number,
         default:0
