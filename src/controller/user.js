@@ -134,7 +134,9 @@ const getTodayReport = async(req, res) => {
     console.log(userId)
     const reports = await Report.findOne({userId:userId, tanggal:today});
     if(!reports){
-        return res.send({message:"Report not found"});
+        const report = new Report({userId, tanggal:moment(new Date()).format("DD-MM-YYYY")})
+        await report.save();
+        return res.send({message:"Report not found, but we created ones"});
     }
     const user = await User.findById(userId);
 
