@@ -3,6 +3,7 @@ const express = require('express')
 const mongoose = require('mongoose')
 const {config} = require('./src/config/envirovment')
 const userRouter = require('./src/routes/user')
+const cors = require('cors')
 
 const app = express();
 
@@ -14,6 +15,7 @@ mongoose.connect(DATABASE)
 
 app.use(express.json())
 app.use(express.urlencoded({extended:true}))
+app.use(cors())
 
 app.use('/user', userRouter);
 
@@ -21,6 +23,6 @@ app.get('/', (req, res) => {
     res.send('this work')
 })
 
-app.listen(PORT || 3001, () => {
+app.listen(3001, () => {
     console.log("Connected to Server")
 })

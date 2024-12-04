@@ -6,9 +6,23 @@ const userSchema = new mongoose.Schema({
     password:String,
     age:Number,
     gender:String,
-    heigh:Number,
+    height:Number,
     weight:Number,
-    activity:String
+    activity:String,
+    BMR:Number,
+    TDEE:Number,
+    carbsMax:Number,
+    carbsMin:Number,
+    fatMax:Number,
+    fatMin:Number,
+    proteinMax:Number,
+    proteinMin:Number,
+    saltMax:Number,
+    saltMin:Number,
+    sugarMax:Number,
+    sugarMin:Number,
+    waterRequirement:Number,
+
 })
 
 const Model = mongoose.model('User', userSchema)
