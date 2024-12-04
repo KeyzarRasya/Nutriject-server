@@ -85,11 +85,11 @@ const setPersonalInfo = async(req, res) => {
 }
 
 const makan = async(req, res) => {
-    const {carbs, protein, salt, sugar, fat, userId} = req.body;
+    const {carbs, protein, salt, sugar, fat, BMR, userId} = req.body;
     const reports = await Report.find({ userId });
 
     if (reports.length === 0) {
-      const newReport = new Report({ userId, carbs, protein, salt, sugar, fat, tanggal: moment(new Date()).format("DD-MM-YYYY") });
+      const newReport = new Report({ userId, BMR,carbs, protein, salt, sugar, fat, tanggal: moment(new Date()).format("DD-MM-YYYY") });
       await newReport.save();   
       return res.send({ message: 'No previous reports found, created a new one', newReport });
     }
@@ -120,6 +120,7 @@ const makan = async(req, res) => {
     current.protein += protein;
     current.sugar += sugar;
     current.salt += salt;
+    current.BMR += BMR;
 
     await current.save();
 
