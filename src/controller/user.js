@@ -91,7 +91,7 @@ const makan = async(req, res) => {
     if (reports.length === 0) {
       const newReport = new Report({ userId, kalori:BMR,carbs, protein, salt, sugar, fat, tanggal: moment(new Date()).format("DD-MM-YYYY") });
       await newReport.save();   
-      return res.send({ message: 'No previous reports found, created a new one', newReport });
+      return res.send({status:201, message: 'No previous reports found, created a new one', newReport });
     }
   
     let todayReport = null;
