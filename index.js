@@ -13,13 +13,13 @@ mongoose.connect(process.env.MONGODB_URI)
 .then(res => console.log('CONNECTED TO DATABASE'))
 .catch(err => console.log(err))
 
-app.use(express.json())
-app.use(express.urlencoded({extended:true}))
-
 app.use(cors({
   origin: 'https://nutriject.vercel.app',
   credentials: true,
 }))
+app.use(express.json())
+app.use(express.urlencoded({extended:true}))
+
 
 app.use('/user', userRouter);
 
