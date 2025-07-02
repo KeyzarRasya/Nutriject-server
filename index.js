@@ -9,7 +9,7 @@ const app = express();
 
 const {DATABASE, PORT, URI} = config(process.env)
 
-mongoose.connect(process.env.MONGODB_URI)
+mongoose.connect(process.env.MONGODB_LOCAL)
 .then(res => console.log('CONNECTED TO DATABASE'))
 .catch(err => console.log(err))
 

@@ -5,7 +5,7 @@ const config = (env) => {
         DATABASE = env.MONGODB_LOCAL;
         URI = `http://localhost:${PORT}/`
     }else{
-        DATABASE = env.MONGODB_URI
+        DATABASE = env.MONGODB_LOCAL
     }
     return {DATABASE, URL, PORT}
 }
