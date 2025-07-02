@@ -15,7 +15,11 @@ mongoose.connect(process.env.MONGODB_URI)
 
 app.use(express.json())
 app.use(express.urlencoded({extended:true}))
-app.use(cors())
+
+app.use(cors({
+  origin: 'https://nutriject.vercel.app',
+  credentials: true,
+}))
 
 app.use('/user', userRouter);
 
